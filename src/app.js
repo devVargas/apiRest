@@ -1,18 +1,18 @@
 import express from "express";
+import conectaDataBase from "./config/dbConnect.js";
+
+const conexao = await conectaDataBase();
+
+conexao.on("error", (erro) => {
+    console.error("erro de conexão", erro);
+});
+
+conexao.once("open", () => {
+    console.log("conexão feita com sucesso");
+});
 
 const app = express();
 app.use(express.json());
-
-const livros = [
-    {
-        "id": 1,
-        "nome": "O Senhor dos Aneis"
-    },
-    {
-        "id": 2,
-        "nome": "Ninho de Dragões"
-    }
-]
 
 function buscaLivro(id) {
     return livros.findIndex(livro => {
