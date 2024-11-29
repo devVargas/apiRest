@@ -16,12 +16,6 @@ conexao.once("open", () => {
 const app = express();
 app.use(express.json());
 
-function buscaLivro(id) {
-    return livros.findIndex(livro => {
-        return livro.id === Number(id);
-    });
-};
-
 app.get("/", (req, res) => {
     res.status(200).send("Inicio do Servidor");
 });
@@ -29,11 +23,6 @@ app.get("/", (req, res) => {
 app.get("/livros", async (req, res) => {
     const listaLivros = await livro.find({});
     res.status(200).json(listaLivros);
-});
-
-app.get("/livros/:id", (req, res) => {
-    const index = buscaLivro(req.params.id);
-    res.status(200).json(livros[index]);
 });
 
 app.post("/livros", (req, res) => {
