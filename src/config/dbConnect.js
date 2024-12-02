@@ -1,3 +1,4 @@
+import "dotenv/config";
 import mongoose, { mongo } from "mongoose";
 
 async function conectaDataBase() {

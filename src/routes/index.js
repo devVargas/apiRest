@@ -3,8 +3,8 @@ import livros from "./livrosRoutes.js";
 
 const routes = (app) => {
     app.route("/").get((req, res) => res.status(200).send("Incio do Servidor"));
-
+    
     app.use(express.json(), livros);
-}
+};
 
 export default routes;
