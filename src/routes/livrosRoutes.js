@@ -4,9 +4,10 @@ import LivroController from "../controllers/livroController.js";
 const routes = express.Router();
 
 routes.get("/livros", LivroController.listarLivros);
-routes.get("/livros/:id", LivroController.listaLivroPorId);
-routes.post("/livros", LivroController.cadastraLivros);
-routes.put("/livros/:id", LivroController.atualizarLIvro);
-routes.delete("/livros/:id", LivroController.excluirLIvro);
+routes.get("/livros/busca", LivroController.listarLivrosPorEditora);
+routes.get("/livros/:id", LivroController.listarLivroPorId);
+routes.post("/livros", LivroController.cadastrarLivro);
+routes.put("/livros/:id", LivroController.atualizarLivro);
+routes.delete("/livros/:id", LivroController.excluirLivro);
 
 export default routes;
